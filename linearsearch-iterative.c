@@ -3,12 +3,11 @@
 //
 
 #include<stdio.h>
-#include<stdbool.h>
 
 //linear search function
-void linearSearch(int arr[], int size, int key) {
+int linearSearch(int key, int arr[], int size) {
 	int i;
-	bool found=-1;
+	int found=-1;
 
   //comparing elements of array with key
 	for(i=0; i<size; i++) {
@@ -18,11 +17,8 @@ void linearSearch(int arr[], int size, int key) {
 			break;
 		}
 	}
-	
-	if(found==-1)
-		printf("%d is not present in the array.", key);
-	else
-		printf("%d found at index %d of the array.", key, i);
+	//returning index of key if found, else returning -1
+	return found;
 }
 
 int main() {
@@ -34,7 +30,8 @@ int main() {
 	//array elements
 	int arr[size];
 	printf("Enter the elements of the array: ");
-	for(int i=0; i<size; i++)
+	int i;
+	for(i=0; i<size; i++)
 		scanf("%d", &arr[i]);
 	
 	//key element to search for
@@ -42,8 +39,15 @@ int main() {
 	printf("Enter the element to search for: ");
 	scanf("%d", &key);
 	
-	//calling linear search function
-	linearSearch(arr, size, key);
+	//calling iterative linear search function
+	int index = linearSearch(key, arr, size);
+
+	//checking if element is present in array
+	if(index==-1) {
+		printf("%d is not present in the array.", key);
+	} else {
+		printf("%d is present at index %d of array.", key, index);
+	}
 	
 	return 0;
 }

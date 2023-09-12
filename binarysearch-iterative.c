@@ -1,8 +1,7 @@
 #include<stdio.h>
-#include<stdbool.h>
 
 //function implementing iterative binary search
-int binSearchIter(int arr[], int low, int high, int key) {
+int binSearchIter(int key, int arr[], int low, int high) {
 	while(low<=high) {
 		int mid = (high + low)/2;
 		
@@ -30,7 +29,8 @@ int main() {
 	//array elements
 	int arr[size];
 	printf("Enter the elements of the array: ");
-	for(int i=0; i<size; i++)
+	int i;
+	for(i=0; i<size; i++)
 		scanf("%d", &arr[i]);
 	
 	//key element to search for
@@ -39,7 +39,7 @@ int main() {
 	scanf("%d", &key);
 	
 	//calling iterative binary search function
-	int result = binSearchIter(arr, 0, size-1, key);
+	int result = binSearchIter(key, arr, 0, size-1);
 	if(result==-1)
 		printf("%d is not present in the array.", key);
 	else

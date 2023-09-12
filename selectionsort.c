@@ -21,7 +21,7 @@ void selectionSort(int arr[], int size) {
 		for(j=i+1; j<size; j++)
 			if(arr[j] < arr[imin])
 				imin = j;
-				
+		
 		swap(&arr[i], &arr[imin]);
 	}
 }
@@ -41,6 +41,6 @@ int main() {
 	
 	printf("Sorted array is: ");
 	printArray(arr, size);
-  
-	return 0;	
+
+	return 0;
 }

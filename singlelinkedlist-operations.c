@@ -51,14 +51,14 @@ struct node* mergeList(struct node* list1, struct node* list2);
 
 int main() {
 	struct node* head1 = NULL;
-	addAfterNth(&head1, 20, 0);
-	addToStart(&head1, 10);
+	addToStart(&head1, 20);
+	addAfterNth(&head1, 10, 0);
 	addToEnd(&head1, 30);
 	printList(head1);
 	
 	struct node* head2 = NULL;
-	addAfterNth(&head2, 50, 0);
-	addToStart(&head2, 110);
+	addToStart(&head2, 50);
+	addAfterNth(&head2, 110, 0);
 	addToEnd(&head2, 60);
 	printList(head2);
 	

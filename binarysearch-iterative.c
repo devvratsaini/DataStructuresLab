@@ -10,7 +10,7 @@ int binSearchIter(int key, int arr[], int low, int high) {
 			return mid;
 		
 		//if key is lesser than mid, ignore right half
-		if(arr[mid]>key)
+		if(arr[mid] > key)
 			high = mid - 1;
 			
 		//if key is greater than mid, ignore left half
@@ -20,20 +20,20 @@ int binSearchIter(int key, int arr[], int low, int high) {
 	return -1;
 }
 
+// main function
 int main() {
-	//array size
+	// input: array size
 	int size;
 	printf("Enter the number of elements in array: ");
 	scanf("%d", &size);
 	
-	//array elements
-	int arr[size];
+	// input: array elements
+	int i, arr[size];
 	printf("Enter the elements of the array: ");
-	int i;
 	for(i=0; i<size; i++)
 		scanf("%d", &arr[i]);
 	
-	//key element to search for
+	// input: key element to search for
 	int key;
 	printf("Enter the element to search for: ");
 	scanf("%d", &key);

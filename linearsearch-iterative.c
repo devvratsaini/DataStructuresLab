@@ -1,15 +1,21 @@
-//WRITTEN BY DEVVRAT SAINI
-//PROGRAM TO PERFORM LINEAR SEARCH IN AN ARRAY
-//
+/*
+CODE FOR IMPLEMENTAION OF LINEAR SEARCH (ITERATIVE)
+	~WRITTEN BY DEVVRAT SAINI
+
+FOR LINEAR SEARCH:
+	TIME COMPLEXITY = O (N)
+	BEST CASE = O (1)
+	WORST CASE = O (N)
+*/
 
 #include<stdio.h>
 
 //linear search function
-int linearSearch(int key, int arr[], int size) {
+int linear_search(int key, int arr[], int size) {
 	int i;
 	int found=-1;
 
-  //comparing elements of array with key
+	//comparing elements of array with key
 	for(i=0; i<size; i++) {
 		if(arr[i]==key) {
 			//key found
@@ -17,6 +23,7 @@ int linearSearch(int key, int arr[], int size) {
 			break;
 		}
 	}
+	
 	//returning index of key if found, else returning -1
 	return found;
 }
@@ -40,7 +47,7 @@ int main() {
 	scanf("%d", &key);
 	
 	//calling iterative linear search function
-	int index = linearSearch(key, arr, size);
+	int index = linear_search(key, arr, size);
 
 	//checking if element is present in array
 	if(index==-1) {

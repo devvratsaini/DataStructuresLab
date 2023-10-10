@@ -1,3 +1,13 @@
+/*
+CODE FOR IMPLEMENTAION OF BINARY SEARCH (ITERATIVE)
+	~WRITTEN BY DEVVRAT SAINI
+
+FOR BINARY SEARCH:
+	TIME COMPLEXITY = O (LOG N)
+	BEST CASE = O (1)
+	WORST CASE = O (LOG N)
+*/
+
 #include<stdio.h>
 
 //function implementing iterative binary search

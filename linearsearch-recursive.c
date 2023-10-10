@@ -1,10 +1,16 @@
-//WRITTEN BY DEVVRAT SAINI
-//PROGRAM TO PERFORM LINEAR SEARCH IN AN ARRAY
-//
+/*
+CODE FOR IMPLEMENTAION OF LINEAR SEARCH (RECURSIVE)
+	~WRITTEN BY DEVVRAT SAINI
+
+FOR LINEAR SEARCH:
+	TIME COMPLEXITY = O (N)
+	BEST CASE = O (1)
+	WORST CASE = O (N)
+*/
 
 #include<stdio.h>
 
-int linearSearch(int key, int arr[], int size) {
+int linear_search_recursive(int key, int arr[], int size) {
 	//return -1 if array is empty
 	if(size==0)
 		return -1;
@@ -13,7 +19,7 @@ int linearSearch(int key, int arr[], int size) {
 	if(arr[size] == key)
 		return size;
 	
-	return linearSearch(key, arr, size-1);
+	return linear_search_recursive(key, arr, size-1);
 }
 
 int main() {
@@ -35,7 +41,7 @@ int main() {
 	scanf("%d", &key);
 	
 	//calling recursive linear search function
-	int index = linearSearch(key, arr, size);
+	int index = linear_search_recursive(key, arr, size);
 
 	//checking if element is present in array
 	if(index==-1) {

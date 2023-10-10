@@ -11,7 +11,7 @@ FOR BINARY SEARCH:
 #include<stdio.h>
 
 //function implementing iterative binary search
-int binSearchIter(int key, int arr[], int low, int high) {
+int binary_search_iterative(int key, int arr[], int low, int high) {
 	while(low<=high) {
 		int mid = (high + low)/2;
 		
@@ -49,7 +49,7 @@ int main() {
 	scanf("%d", &key);
 	
 	//calling iterative binary search function
-	int result = binSearchIter(key, arr, 0, size-1);
+	int result = binary_search_iterative(key, arr, 0, size-1);
 	if(result==-1)
 		printf("%d is not present in the array.", key);
 	else

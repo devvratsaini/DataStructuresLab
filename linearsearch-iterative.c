@@ -11,7 +11,7 @@ FOR LINEAR SEARCH:
 #include<stdio.h>
 
 //linear search function
-int linear_search(int key, int arr[], int size) {
+int linear_search_iterative(int key, int arr[], int size) {
 	int i;
 	int found=-1;
 
@@ -47,7 +47,7 @@ int main() {
 	scanf("%d", &key);
 	
 	//calling iterative linear search function
-	int index = linear_search(key, arr, size);
+	int index = linear_search_iterative(key, arr, size);
 
 	//checking if element is present in array
 	if(index==-1) {

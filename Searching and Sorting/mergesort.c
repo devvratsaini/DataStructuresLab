@@ -1,11 +1,23 @@
+/*
+CODE FOR IMPLEMENTAION OF MERGE SORT
+	~WRITTEN BY DEVVRAT SAINI
+
+TIME COMPLEXITY FOR MERGE SORT:
+	BEST CASE = O (N * LOG N)
+	AVERAGE CASE = O (N * NOG N)
+	WORST CASE = O (N * LOG N)
+*/
+
 #include<stdio.h>
 
+// Function to print a given array
 void printArray(int arr[], int size) {
 	int i;
 	for(i=0; i<size; i++)
 		printf("%d ", arr[i]);
 }
 
+// Function to perform merge sort operations
 void merge(int arr[], int l, int m, int r) {
     int i, j, k;
     int n1 = m - l + 1;
@@ -47,6 +59,7 @@ void merge(int arr[], int l, int m, int r) {
     }
 }
 
+// Function to implement Merge Sort
 void mergeSort(int arr[], int low, int high){
     int mid;
     if(low < high) {
@@ -57,19 +70,23 @@ void mergeSort(int arr[], int low, int high){
     }
 }
 
+// Main function
 int main() {
 	int size;
 	printf("Enter the number of elements in the array: ");
 	scanf("%d", &size);
-	
+
+	// Taking elements of the array as input
 	int arr[size];
 	printf("Enter elements of the array:\n");
 	int i;
 	for(i = 0; i < size; i++)
 		scanf("%d", &arr[i]);
-	
+
+	// Sorting the array
 	mergeSort(arr, 0, size);
-	
+
+	// Printing the Sorted Array
 	printf("Sorted array is: ");
 	printArray(arr, size);
 	

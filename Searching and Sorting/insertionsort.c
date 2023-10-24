@@ -1,33 +1,29 @@
 /*
-CODE FOR IMPLEMENTAION OF SELECTION SORT (ITERATIVE)
+CODE FOR IMPLEMENTAION OF INSERTION SORT (ITERATIVE)
 	~WRITTEN BY DEVVRAT SAINI
 
-TIME COMPLEXITY FOR SELECTION SORT:
-	BEST CASE = O (N^2)
+TIME COMPLEXITY FOR INSERTION SORT:
+	BEST CASE = O (N)
 	AVERAGE CASE = O (N^2)
 	WORST CASE = O (N^2)
-*/	
+*/
 
-#include<stdio.h>
+#include <stdio.h>
+#include <math.h>
 
-// Function to implement Selection Sort
-void selectionSort(int arr[] ,int n) {
-	int i, j, imin;
+// Function to implement Insertion Sort
+void insertionSort(int arr[], int n) {
+	int i, j, key;
 	
-	for (i = 0; i < n-1; i++) {
-		imin = i;
-		
-		for (j = i+1; j < n; j++) {
-			if (arr[j] < arr[imin]) {
-				imin=j;
-			}
+	for (i = 1; i < n; i++) {
+		key = arr[i];
+		j = i-1;
+
+		while (j >= 0 && arr[j] > key) {
+			arr[j+1] = arr[j];
+			j = j-1;
 		}
-		
-		// swapping
-		int temp;
-		temp = arr[i];
-		arr[i] = arr[imin];
-		arr[imin] = temp;
+		arr[j+1] = key;
 	}
 }
 
@@ -35,10 +31,9 @@ void selectionSort(int arr[] ,int n) {
 void printArray(int arr[], int n) {
 	int i;
 	
-	for(i = 0; i < n; i++) {
-	    printf("%d ",arr[i]);
+	for (i = 0; i < n; i++) {
+		printf("%d ", arr[i]);
 	}
-	
 	printf("\n");
 }
 
@@ -56,10 +51,10 @@ int main() {
 	}
 	
 	// Sorting the array
-	selectionSort(arr, n);
+	insertionSort(arr, n);
 	
-	// Printing sorted array
-	printf("\nSorted Array: ");
+	// Printing the sorted array
+	printf("\nSorted array: ");
 	printArray(arr, n);
 	
 	return 0;	

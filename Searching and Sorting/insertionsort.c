@@ -9,7 +9,6 @@ TIME COMPLEXITY FOR INSERTION SORT:
 */
 
 #include <stdio.h>
-#include <math.h>
 
 // Function to implement Insertion Sort
 void insertionSort(int arr[], int n) {

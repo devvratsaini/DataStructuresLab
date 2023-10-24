@@ -1,53 +1,80 @@
+/*
+CODE FOR IMPLEMENTAION OF BUBBLE SORT (ITERATIVE)
+	~WRITTEN BY DEVVRAT SAINI
+
+TIME COMPLEXITY FOR BUBBLE SORT:
+	BEST CASE = O (N)
+	AVERAGE CASE = O (N^2)
+	WORST CASE = O (N^2)
+*/
+
+
 #include<stdio.h>
 
-// swap two integers function
+//swaps value of two integers
 void swap(int *x, int *y) {
 	int temp = *x;
 	*x = *y;
 	*y = temp;
 }
 
-// optimized bubble sort function
+//optimized bubble sort of array
 void bubbleSort(int arr[], int size) {
-	int i, j;
-	for(i=0; i<size-1; i++) {
-		int swapped = 0;
-		for(j=0; j<size-i-1; j++) {
-			// swap if smaller value is found
-			if(arr[j] > arr[j+1]) {
-				swap(&arr[j], &arr[j+1]);
-				swapped = 1;
+	for(int i = 0; i < size - 1; i++) {
+		int swapped = false;
+		for(int j = 0; j < size - i - 1; j++) {
+		
+			//swap if smaller value is found
+			if(arr[j] > arr[j + 1]) {
+				swap(&arr[j], &arr[j + 1]);
+				swapped = true;
 			}
 		}
-
-	// break if array is sorted
-	if(swapped == 0)
+	if(swapped == false)
 		break;
 	}
 }
 
-// main function
 int main() {
-	printf("OPTIMIZED BUBBLE SORT\n\n");
+	printf("BUBBLE SORT\n\n");
 	
-	// input: size of array
+	//input: size of array
 	int size;
 	printf("Enter the number of elements in array: ");
 	scanf("%d", &size);
 	
-	// input: elements of array
-	int i, arr[size];
+	//input: elements of array
+	int arr[size];
 	printf("Enter the elements of the array: ");
-	for(i = 0; i < size; i++)
+	for(int i = 0; i < size; i++)
 		scanf("%d",&arr[i]);
 	
-	// sorting the array
-	bubbleSort(arr, size);
+	//sorting the array
+	int numSwaps = 0;
+	int numPasses = 0;
+	for(int i = 0; i < size - 1; i++) {
+		int swapped = false;
+		numPasses++;
+		
+		for(int j = 0; j < size - i - 1; j++) {
+			//swap if smaller value is found
+			if(arr[j] > arr[j + 1]) {
+				swap(&arr[j], &arr[j + 1]);
+				swapped = true;
+				numSwaps++;
+			}
+		}
+		
+		if(swapped == false)
+			break;
+	}
 	
-	// print: array
+	//print: array
 	printf("Sorted array: ");
-	for(i=0; i<size; i++)
+	for(int i = 0; i < size; i++)
 		printf("%d ", arr[i]);
+	printf("\n%d swaps occurred.", numSwaps);
+	printf("\n%d passes occurred.", numPasses);
 	
 	return 0;
 }

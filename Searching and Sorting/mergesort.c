@@ -87,7 +87,7 @@ int main() {
 	mergeSort(arr, 0, size);
 
 	// Printing the Sorted Array
-	printf("Sorted array is: ");
+	printf("\nSorted array is: ");
 	printArray(arr, size);
 	
 	return 0;

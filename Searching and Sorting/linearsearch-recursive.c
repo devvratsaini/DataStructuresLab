@@ -16,8 +16,8 @@ int linear_search_recursive(int key, int arr[], int size) {
 		return -1;
 	
 	//return if key is found
-	if(arr[size] == key)
-		return size;
+	if(arr[size-1] == key)
+		return size-1;
 	
 	return linear_search_recursive(key, arr, size-1);
 }

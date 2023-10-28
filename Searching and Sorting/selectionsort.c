@@ -10,27 +10,6 @@ TIME COMPLEXITY FOR SELECTION SORT:
 
 #include<stdio.h>
 
-// Function to implement Selection Sort
-void selectionSort(int arr[] ,int n) {
-	int i, j, imin;
-	
-	for (i = 0; i < n-1; i++) {
-		imin = i;
-		
-		for (j = i+1; j < n; j++) {
-			if (arr[j] < arr[imin]) {
-				imin=j;
-			}
-		}
-		
-		// swapping
-		int temp;
-		temp = arr[i];
-		arr[i] = arr[imin];
-		arr[imin] = temp;
-	}
-}
-
 // Function to print a given array
 void printArray(int arr[], int n) {
 	int i;
@@ -40,6 +19,28 @@ void printArray(int arr[], int n) {
 	}
 	
 	printf("\n");
+}
+
+// Function to swap two numbers
+void swap(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+// Function to implement Selection Sort
+void selectionSort(int arr[], int size) {
+	int i, j, imin;
+	
+	for(i = 0; i < size - 1; i++) {
+		imin = i;
+		for(j = i+1; j < size; j++) {
+			if(arr[j] < arr[imin]) {
+				imin = j;
+			}
+		}
+		swap(&arr[i], &arr[imin]);
+	}
 }
 
 // Main function

@@ -18,63 +18,55 @@ void swap(int *x, int *y) {
 	*y = temp;
 }
 
+// function to print an array
+void printArray(int arr[], int size) {
+	int i;
+	for(i = 0; i < size; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+}
+
 //optimized bubble sort of array
 void bubbleSort(int arr[], int size) {
-	for(int i = 0; i < size - 1; i++) {
-		int swapped = false;
-		for(int j = 0; j < size - i - 1; j++) {
-		
-			//swap if smaller value is found
-			if(arr[j] > arr[j + 1]) {
-				swap(&arr[j], &arr[j + 1]);
-				swapped = true;
+	int i, j, swapped;
+	for(i = 0; i < size-1; i++) {
+		swapped = 0;
+		for(j = 0; j < size-i-1; j++) {
+			// swap if greater value is found
+			if(arr[j] > arr[j+1]) {
+				swap(&arr[j], &arr[j+1]);
+				swapped = 1;
 			}
 		}
-	if(swapped == false)
-		break;
+		// break if no swaps occur in an iteration
+		// ------array is sorted------
+		if(swapped == 0) {
+			break;
+		}
 	}
 }
 
+// main function
 int main() {
-	printf("BUBBLE SORT\n\n");
-	
-	//input: size of array
+	// taking size of array as input
 	int size;
-	printf("Enter the number of elements in array: ");
+	printf("Enter the number of elements in the array: ");
 	scanf("%d", &size);
-	
-	//input: elements of array
-	int arr[size];
+
+	// taking elements of array as input
+	int i, arr[size];
 	printf("Enter the elements of the array: ");
-	for(int i = 0; i < size; i++)
-		scanf("%d",&arr[i]);
-	
-	//sorting the array
-	int numSwaps = 0;
-	int numPasses = 0;
-	for(int i = 0; i < size - 1; i++) {
-		int swapped = false;
-		numPasses++;
-		
-		for(int j = 0; j < size - i - 1; j++) {
-			//swap if smaller value is found
-			if(arr[j] > arr[j + 1]) {
-				swap(&arr[j], &arr[j + 1]);
-				swapped = true;
-				numSwaps++;
-			}
-		}
-		
-		if(swapped == false)
-			break;
+	for(i = 0; i < size; i++) {
+		scanf("%d", &arr[i]);
 	}
-	
-	//print: array
+
+	// sorting the array
+	bubbleSort(arr, size);
+
+	// printing the sorted array
 	printf("Sorted array: ");
-	for(int i = 0; i < size; i++)
-		printf("%d ", arr[i]);
-	printf("\n%d swaps occurred.", numSwaps);
-	printf("\n%d passes occurred.", numPasses);
+	printArray(arr, size);
 	
 	return 0;
 }

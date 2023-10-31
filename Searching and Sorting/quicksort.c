@@ -24,38 +24,33 @@ void printArray(int arr[], int size) {
 		printf("%d ", arr[i]);
 }
 
-
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-    	// Choosing pivot position
-        int pivot = arr[low];
-        
-        int i = low;   
-        int j = high;
-
-        while (i <= j) {
-            while (arr[i] <= pivot) {
-                i++;
-            }
-            
-            while (arr[j] > pivot) {
-                j--;
-            }
-            
-            if (i < j) {
-                swap(&arr[i], &arr[j]);
-            }
+// Function for creating partition
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low-1;
+	
+	int j;
+    for (j = low; j <= high-1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
         }
+    }
+    
+    swap(&arr[i+1], &arr[high]);
+    return i+1;
+}
 
-        // Changing pivot position
-        swap(&arr[j], &arr[low]);
-		
-        // Sorting the sub-arrays recursively
-        quickSort(arr, low, j-1);
-        quickSort(arr, j+1, high);
+// Function to implement Quick Sort
+void quickSort(int arr[], int low, int high) {
+    if(low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
 }
 
+// Main function
 int main() {
     int i, arr[50], n;
     printf("Enter number of elements: ");
